@@ -22,22 +22,29 @@ function mostrarMensagem() {
 
         if (email.indexOf('@') !== -1){
 
-            if (email.indexOf('@') > 0){
-    
-                if ((email.endsWith('.com') || email.endsWith('.edu'))){
-    
-                    alert("E-mail válido!");
+            var partesEmail = email.split('@');
+
+            if (email.indexOf('@') > 0) {partesEmail.length === 2
+
+                if (partesEmail.length === 2){
+        
+                    if ((email.endsWith('.com') || email.endsWith('.edu'))){
+        
+                        alert("E-mail válido!");
+                
+                    } else {
+                        alert("E-mail não aceito! Não há .com e nem .edu no final do e-mail digitado.")
+                        return;
+                    }
             
                 } else {
-                    alert("E-mail não aceito! Não há .com e nem .edu no final do e-mail digitado.")
+                    alert("E-mail não aceito! Há mais de um @");
                     return;
                 }
-        
             } else {
                 alert("E-mail não aceito! O @ aparece como primeiro caractere.")
                 return;
             }
-    
         } else {
             alert("E-mail não aceito! É necessário o @")
             return;
